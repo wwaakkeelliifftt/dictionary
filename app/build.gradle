@@ -91,5 +91,4 @@ dependencies {
     // coroutines support for Room + extensions
     implementation "androidx.room:room-ktx:2.3.0"
 
-
 }
