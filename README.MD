@@ -1,0 +1,1 @@
+simple dictionary android app. clean architecture, jetpack compose, retrofit, coroutines, dagger hilt

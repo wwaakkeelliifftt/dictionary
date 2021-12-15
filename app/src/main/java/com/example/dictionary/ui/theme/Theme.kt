@@ -7,9 +7,13 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
 private val DarkColorPalette = darkColors(
-    primary = DeepDive700,
-    primaryVariant = Raspberry_50,
-    secondary = Raspberry500
+    primary = Raspberry_50,
+    primaryVariant = DeepDive700,
+    secondary = Raspberry500,
+    onSurface = Raspberry_50,
+    onBackground = Raspberry_50,
+    onSecondary = Raspberry500,
+
 )
 
 private val LightColorPalette = lightColors(

@@ -8,16 +8,16 @@ import com.example.dictionary.feature_dictionary.domain.model.WordInfo
 @Entity
 data class WordInfoEntity(
     val word: String,
-    val phonetic: String = "..no info..",
-    val origin: String = "..no info..",
+    val phonetic: String?,
+    val origin: String?,
     val meanings: List<Meaning>,
     @PrimaryKey val id: Int? = null
 ) {
     fun toWordInfo(): WordInfo {
         return WordInfo(
             word = word,
-            phonetic = phonetic,
-            origin = origin,
+            phonetic = phonetic ?: "..no info..",
+            origin = origin ?: "..no info..",
             meanings = meanings
         )
     }
