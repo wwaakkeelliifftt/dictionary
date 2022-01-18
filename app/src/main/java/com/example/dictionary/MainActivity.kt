@@ -3,19 +3,18 @@ package com.example.dictionary
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.dictionary.core.util.Resource
+import com.example.dictionary.feature_dictionary.presentation.InitSplashScreenViewModel
 import com.example.dictionary.feature_dictionary.presentation.WordInfoItem
 import com.example.dictionary.feature_dictionary.presentation.WordInfoViewModel
 import com.example.dictionary.ui.theme.DictionaryTheme
@@ -24,9 +23,19 @@ import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private val splashScreenViewModel: InitSplashScreenViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.raspberry800)
+//        window.statusBarColor = ContextCompat.getColor(this, R.color.raspberry800)
+
+        installSplashScreen().apply {
+            setKeepOnScreenCondition {
+                splashScreenViewModel.isLoading.value
+            }
+        }
+
         setContent {
             DictionaryTheme {
                 val  viewModel: WordInfoViewModel = hiltViewModel()

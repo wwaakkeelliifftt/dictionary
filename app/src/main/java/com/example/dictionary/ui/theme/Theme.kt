@@ -13,7 +13,6 @@ private val DarkColorPalette = darkColors(
     onSurface = Raspberry_50,
     onBackground = Raspberry_50,
     onSecondary = Raspberry500,
-
 )
 
 private val LightColorPalette = lightColors(

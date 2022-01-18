@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="raspberry800">#FFA61D5C</color>
+    <color name="raspberry900">#FF801952</color>
 </resources>
